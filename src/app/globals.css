@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #111111;
+  --accent: #c8102e;
+  --muted: #6b6b6b;
+  --line: #e7e7e7;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  /* Segoe UI and Tahoma ship with Windows and both support Arabic well */
+  font-family: "Segoe UI", Tahoma, system-ui, -apple-system, Arial, sans-serif;
+}
