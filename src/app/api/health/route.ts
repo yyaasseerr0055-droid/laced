@@ -57,5 +57,16 @@ export async function GET() {
     }
   }
 
-  return Response.json({ settings, database });
+  // Both of these are public values, so showing their start is safe. JSON shows
+  // hidden problems such as stray quote marks or line breaks.
+  const look = {
+    SUPABASE_URL: url === undefined ? "missing" : { text: url, length: url.length },
+    SUPABASE_PUBLISHABLE_KEY:
+      publishable === undefined
+        ? "missing"
+        : { starts: publishable.slice(0, 15), length: publishable.length },
+    SUPABASE_SERVICE_ROLE_KEY: service === undefined ? "missing" : { length: service.length },
+  };
+
+  return Response.json({ version: "check v2", settings, look, database });
 }
