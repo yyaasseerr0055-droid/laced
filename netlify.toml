@@ -3,3 +3,6 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  # These three are public or non-secret values, so Netlify's secret scanner may skip them.
+  # SUPABASE_SERVICE_ROLE_KEY is deliberately NOT listed: it must stay scanned.
+  SECRETS_SCAN_OMIT_KEYS = "SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY,ADMIN_EMAIL"
